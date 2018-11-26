@@ -13,9 +13,10 @@ public final class ObservableFuture2 {
     public static void main(final String[] args) {
 
         final Future<Double> nextRandomValue = randomValue();
+
         Observable.fromFuture(nextRandomValue)
                 .map(x -> x * 10.0D)
-                // It will pull out the value when available ... 
+                // It will pull out the value when available ...
                 .subscribe(System.out::println);
 
         EXECUTOR.shutdown();
