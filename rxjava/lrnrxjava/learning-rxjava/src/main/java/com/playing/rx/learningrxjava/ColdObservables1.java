@@ -10,6 +10,7 @@ public final class ColdObservables1 {
         source.subscribe(s -> System.out.println("Observer 1 received: " + s));
 
         // Second observer:
-        source.subscribe(s -> System.out.println("Observer 2 received: " + s));
+        // This second observer
+        source.map(String::toUpperCase).subscribe(s -> System.out.println("Observer 2 received: " + s));
     }
 }
