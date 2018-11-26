@@ -9,7 +9,7 @@ public final class LauncherConnectableObservable1 {
     public static void main(final String[] args) {
         final ConnectableObservable<Long> seconds = Observable.interval(1, TimeUnit.SECONDS).publish();
 
-        // Cold emissions ... 
+        // Cold emissions ...
 
         // Observer 1
         seconds.subscribe(l -> System.out.println("Observer 1: " + l));
