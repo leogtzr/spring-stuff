@@ -1,5 +1,6 @@
 package com.playing.rx.learningrxjava.operators.suppressing;
 
+import com.playing.rx.learningrxjava.util.SomeTools;
 import io.reactivex.Observable;
 
 import java.util.Arrays;
@@ -17,7 +18,7 @@ public final class TakeExample1 {
                 .map(i -> elements.get(Math.toIntExact(i)))
                 .subscribe(System.out::println);
 
-        sleep(TimeUnit.SECONDS.toMillis(5L));
+        SomeTools.sleepSeconds(5L);
 
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>");
 
@@ -28,7 +29,7 @@ public final class TakeExample1 {
                 )
                 .subscribe(System.out::println);
 
-        sleep(TimeUnit.SECONDS.toMillis(10L));
+        SomeTools.sleepSeconds(5L);
 
         System.out.println("==================================================");
 
@@ -38,18 +39,8 @@ public final class TakeExample1 {
                         (period, name) -> name
                 ).subscribe(System.out::println);
 
-        sleep(TimeUnit.SECONDS.toMillis(5L));
+        SomeTools.sleepSeconds(5L);
 
-
-
-    }
-
-    private static void sleep(final long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (final InterruptedException ex) {
-            ex.printStackTrace();
-        }
     }
 
 }

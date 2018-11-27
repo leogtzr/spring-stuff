@@ -27,12 +27,4 @@ public final class ObservableFuture2 {
         return EXECUTOR.submit(() -> Math.random());
     }
 
-    private static void sleep(final long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (final InterruptedException ex) {
-            ex.printStackTrace();
-        }
-    }
-
 }

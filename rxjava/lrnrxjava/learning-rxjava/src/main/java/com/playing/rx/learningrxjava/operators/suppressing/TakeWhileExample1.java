@@ -1,5 +1,6 @@
 package com.playing.rx.learningrxjava.operators.suppressing;
 
+import com.playing.rx.learningrxjava.util.SomeTools;
 import io.reactivex.Observable;
 
 import java.util.concurrent.TimeUnit;
@@ -13,16 +14,8 @@ public final class TakeWhileExample1 {
                 .subscribe(System.out::println)
                 ;
 
-        sleep(TimeUnit.SECONDS.toMillis(5L));
+        SomeTools.sleepSeconds(5L);
 
-    }
-
-    private static void sleep(final long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (final InterruptedException ex) {
-            ex.printStackTrace();
-        }
     }
 
 }

@@ -1,5 +1,6 @@
 package com.playing.rx.learningrxjava.disposing;
 
+import com.playing.rx.learningrxjava.util.SomeTools;
 import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -20,21 +21,14 @@ public final class CompositeDisposable1 {
         // put both disposables into CompositeDisposables:
         DISPOSABLES.addAll(disposable1, disposable2);
 
-        sleep(TimeUnit.SECONDS.toMillis(5L));
+        SomeTools.sleepSeconds(5L);
 
         // dispose all disposables when we no longer want to be subscribed to ...
         DISPOSABLES.dispose();
 
         // sleep 5 more seconds to prove that there are no more emissions:
-        sleep(TimeUnit.SECONDS.toMillis(5L));
+        SomeTools.sleepSeconds(5L);
     }
 
-    private static void sleep(final long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (final InterruptedException ex) {
-            ex.printStackTrace();
-        }
-    }
 
 }

@@ -1,5 +1,6 @@
 package com.playing.rx.learningrxjava.factories;
 
+import com.playing.rx.learningrxjava.util.SomeTools;
 import io.reactivex.Observable;
 import io.reactivex.observables.ConnectableObservable;
 
@@ -16,21 +17,12 @@ public final class LauncherConnectableObservable1 {
         seconds.connect();
 
         // sleep 5 seconds:
-        sleep(5000);
+        SomeTools.sleepSeconds(5L);
 
         // Observer 2
         seconds.subscribe(l -> System.out.println("Observer 2: " + l));
-        sleep(5000);
+        SomeTools.sleepSeconds(5L);
 
-
-    }
-
-    private static void sleep(final long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (final InterruptedException ex) {
-            ex.printStackTrace();
-        }
     }
 
 }

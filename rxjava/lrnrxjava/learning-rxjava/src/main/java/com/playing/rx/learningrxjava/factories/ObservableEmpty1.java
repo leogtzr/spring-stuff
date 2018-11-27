@@ -1,5 +1,6 @@
 package com.playing.rx.learningrxjava.factories;
 
+import com.playing.rx.learningrxjava.util.SomeTools;
 import io.reactivex.Observable;
 
 public final class ObservableEmpty1 {
@@ -11,15 +12,7 @@ public final class ObservableEmpty1 {
                         Throwable::printStackTrace,
                         () -> System.out.println("Done!"));
 
-        sleep(5000);
-    }
-
-    private static void sleep(final long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (final InterruptedException ex) {
-            ex.printStackTrace();
-        }
+        SomeTools.sleepSeconds(5L);
     }
 
 }
