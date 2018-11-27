@@ -13,7 +13,7 @@ public final class ScanExample1 {
 
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>");
 
-        
+
 
         SomeTools.sleepSeconds(5L);
 
