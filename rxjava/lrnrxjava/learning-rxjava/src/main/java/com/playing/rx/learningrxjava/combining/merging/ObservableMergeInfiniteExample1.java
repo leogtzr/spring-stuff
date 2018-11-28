@@ -17,7 +17,7 @@ public final class ObservableMergeInfiniteExample1 {
                 .map(l -> "Source2: " + l + " milliseconds")
                 ;
 
-        // the order is not guaranteed 
+        // the order is not guaranteed
         Observable.merge(source1, source2)
                 .subscribe(System.out::println)
                 ;
