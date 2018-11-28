@@ -5,7 +5,7 @@ import io.reactivex.Observable;
 
 import java.util.HashSet;
 
-public class CollectSetExample1 {
+public final class CollectSetExample1 {
     public static void main(final String[] args) {
         Observable.just("Alpha", "Beta", "Gamma", "Delta", "Epsilon")
                 // for tricker cases ...

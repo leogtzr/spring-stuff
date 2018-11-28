@@ -3,7 +3,7 @@ package com.playing.rx.learningrxjava.error;
 import com.playing.rx.learningrxjava.util.SomeTools;
 import io.reactivex.Observable;
 
-public class OnErrorReturnItemExample1 {
+public final class OnErrorReturnItemExample1 {
     public static void main(final String[] args) {
 //        Observable.just(5, 2, 4, 0, 3, 2, 8)
 //                .map(i -> 10.0 / i)
