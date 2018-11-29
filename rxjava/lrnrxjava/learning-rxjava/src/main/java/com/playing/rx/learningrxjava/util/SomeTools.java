@@ -1,5 +1,6 @@
 package com.playing.rx.learningrxjava.util;
 
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 public final class SomeTools {
@@ -14,6 +15,10 @@ public final class SomeTools {
 
     public static void sleepSeconds(final long seconds) {
         sleep(TimeUnit.SECONDS.toMillis(seconds));
+    }
+
+    public static int randomInt() {
+        return ThreadLocalRandom.current().nextInt(1_000);
     }
 
     private SomeTools() {}
