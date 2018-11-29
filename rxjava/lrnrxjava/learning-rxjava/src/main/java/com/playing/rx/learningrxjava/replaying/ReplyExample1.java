@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public final class ReplyExample1 {
     public static void main(final String[] args) {
         final Observable<Long> seconds = Observable.interval(1, TimeUnit.SECONDS)
-                .replay()
+                .replay()           // we can specify a buffer with replay(2)
                 .autoConnect();
 
         // Observer 1
