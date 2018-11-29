@@ -9,7 +9,7 @@ public final class AutoConnectExample1 {
         final Observable<Integer> threeRandoms = Observable.range(1, 3)
                 .map(i -> SomeTools.randomInt())
                 .publish()
-                .autoConnect(2)
+                .autoConnect(2)         // the default is 1
                 ;
 
         // Observer 1 - print each random integer
@@ -19,6 +19,9 @@ public final class AutoConnectExample1 {
         threeRandoms.reduce(0, (total, next) -> total + next)
                 .subscribe(i -> System.out.println("Observer 2: " + i))
                 ;
+
+        // Observer 3 - receives nothing (autoConnect() is set to two)
+        threeRandoms.subscribe(i -> System.out.println("Observer 3: " + i));
 
         SomeTools.sleepSeconds(3L);
 
