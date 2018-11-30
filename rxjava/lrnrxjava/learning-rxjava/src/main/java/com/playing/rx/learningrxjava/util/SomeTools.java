@@ -21,6 +21,11 @@ public final class SomeTools {
         return ThreadLocalRandom.current().nextInt(1_000);
     }
 
+    public static <T> T intenseCalculation(final T value) {
+        SomeTools.sleepSeconds(ThreadLocalRandom.current().nextInt(3_000));
+        return value;
+    }
+
     private SomeTools() {}
 
 }
