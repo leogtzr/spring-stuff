@@ -36,6 +36,10 @@ public final class SomeTools {
         return value;
     }
 
+    public static int randomSleepTime() {
+        return ThreadLocalRandom.current().nextInt(2000);
+    }
+
     private SomeTools() {}
 
 }
