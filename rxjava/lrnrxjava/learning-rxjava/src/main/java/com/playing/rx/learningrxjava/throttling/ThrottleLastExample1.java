@@ -1,4 +1,9 @@
 package com.playing.rx.learningrxjava.throttling;
 
-public class ThrottleLastExample1 {
+public final class ThrottleLastExample1 {
+
+    public static void main(final String[] args) {
+
+    }
+
 }

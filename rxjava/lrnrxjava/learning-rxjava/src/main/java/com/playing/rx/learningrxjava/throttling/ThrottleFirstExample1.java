@@ -5,8 +5,7 @@ import io.reactivex.Observable;
 
 import java.util.concurrent.TimeUnit;
 
-public final class ThrottlingExample1 {
-
+public final class ThrottleFirstExample1 {
     public static void main(final String[] args) {
 
         final Observable<String> source1 = Observable.interval(100, TimeUnit.MILLISECONDS)
@@ -28,11 +27,11 @@ public final class ThrottlingExample1 {
                 ;
 
         Observable.concat(source1, source2, source3)
-                .throttleLast(500, TimeUnit.MILLISECONDS)
+                .throttleFirst(1, TimeUnit.SECONDS)
                 .subscribe(System.out::println)
-                ;
+        ;
 
         SomeTools.sleepSeconds(6L);
-    }
 
+    }
 }
