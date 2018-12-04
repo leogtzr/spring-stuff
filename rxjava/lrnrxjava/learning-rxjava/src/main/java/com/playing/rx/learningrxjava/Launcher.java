@@ -11,7 +11,6 @@ public class Launcher {
         secondIntervals.subscribe(System.out::println);
 
         SomeTools.sleepSeconds(5L);
-
     }
 
 }
