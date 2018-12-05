@@ -9,10 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import java.util.concurrent.TimeUnit;
 
-public final class JavaFxApp extends Application {
+public final class JavaFxApp2 extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -20,14 +19,12 @@ public final class JavaFxApp extends Application {
         VBox root = new VBox();
         Label label = new Label("");
 
-        // Observable with second timer
-        Observable<String> seconds =
+        // Turn Observable into Binding being fluent :)
+        Binding<String> binding =
                 Observable.interval(1, TimeUnit.SECONDS)
                         .map(i -> i.toString())
-                        .observeOn(JavaFxScheduler.platform());
-
-        // Turn Observable into Binding
-        Binding<String> binding = JavaFxObserver.toBinding(seconds);
+                        .observeOn(JavaFxScheduler.platform())
+                        .to(JavaFxObserver::toBinding);
 
         //Bind Label to Binding
         label.textProperty().bind(binding);
