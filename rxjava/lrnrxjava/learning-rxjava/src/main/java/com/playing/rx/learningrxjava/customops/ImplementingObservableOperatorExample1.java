@@ -12,7 +12,7 @@ public final class ImplementingObservableOperatorExample1 {
         Observable.range(1, 5)
                 .lift(doOnEmpty(() -> System.out.println("Operation 1 Empty!")))
                 .subscribe(v -> System.out.println("Operation 1: " + v))
-                ;
+        ;
 
         System.out.println("~~~~~~~~~~~~~");
 
@@ -22,36 +22,32 @@ public final class ImplementingObservableOperatorExample1 {
     }
 
     private static <T> ObservableOperator<T, T> doOnEmpty(final Action action) {
-        return new ObservableOperator<T, T>() {
+        return observer -> new DisposableObserver<T>() {
+
+            private boolean isEmpty = true;
+
             @Override
-            public Observer<? super T> apply(final Observer<? super T> observer) throws Exception {
-                return new DisposableObserver<T>() {
+            public void onNext(final T value) {
+                this.isEmpty = false;
+                observer.onNext(value);
+            }
 
-                    private boolean isEmpty = true;
+            @Override
+            public void onError(final Throwable throwable) {
+                observer.onError(throwable);
+            }
 
-                    @Override
-                    public void onNext(final T value) {
-                        this.isEmpty = false;
-                        observer.onNext(value);
+            @Override
+            public void onComplete() {
+                if (this.isEmpty) {
+                    try {
+                        action.run();
+                    } catch (final Exception ex) {
+                        onError(ex);
+                        return;
                     }
-
-                    @Override
-                    public void onError(final Throwable throwable) {
-                        observer.onError(throwable);
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        if (this.isEmpty) {
-                            try {
-                                action.run();
-                            } catch (final Exception ex) {
-                                onError(ex);
-                                return;
-                            }
-                        }
-                    }
-                };
+                }
+                observer.onComplete();
             }
         };
     }
