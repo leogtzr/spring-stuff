@@ -18,19 +18,19 @@ public final class ImplementingFlowableOperatorExample1 {
     }
 
     private static <T> FlowableOperator<T, T> doOnEmpty(final Action action) {
-        return observer -> new DisposableSubscriber<T>() {
+        return subscriber -> new DisposableSubscriber<T>() {
 
             private boolean isEmpty = true;
 
             @Override
             public void onNext(final T value) {
                 this.isEmpty = false;
-                observer.onNext(value);
+                subscriber.onNext(value);
             }
 
             @Override
             public void onError(final Throwable throwable) {
-                observer.onError(throwable);
+                subscriber.onError(throwable);
             }
 
             @Override
@@ -43,7 +43,7 @@ public final class ImplementingFlowableOperatorExample1 {
                         return;
                     }
                 }
-                observer.onComplete();
+                subscriber.onComplete();
             }
         };
     }
