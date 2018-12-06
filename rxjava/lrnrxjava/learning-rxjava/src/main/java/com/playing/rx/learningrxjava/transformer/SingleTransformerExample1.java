@@ -1,6 +1,5 @@
 package com.playing.rx.learningrxjava.transformer;
 
-import com.playing.rx.learningrxjava.sideffects.SharingStateIssueExample1;
 import io.reactivex.Observable;
 import io.reactivex.SingleTransformer;
 
