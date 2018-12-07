@@ -74,7 +74,15 @@
             <version>0.3.4</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
+		<!-- https://mvnrepository.com/artifact/com.github.davidmoten/rxjava2-extras -->
+		<dependency>
+			<groupId>com.github.davidmoten</groupId>
+			<artifactId>rxjava2-extras</artifactId>
+			<version>0.1.28</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-all</artifactId>
