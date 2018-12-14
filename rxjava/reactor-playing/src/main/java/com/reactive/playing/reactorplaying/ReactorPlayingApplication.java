@@ -9,4 +9,3 @@ public class ReactorPlayingApplication {
 		SpringApplication.run(ReactorPlayingApplication.class, args);
 	}
 }
-
