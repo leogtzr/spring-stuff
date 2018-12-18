@@ -1,4 +1,4 @@
-package com.retrofit.client.retrofitsecclient;
+package com.retrofit.client;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

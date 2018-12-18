@@ -10,11 +10,23 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
-    protected void configure(final HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/", "/home", "/index").hasAuthority("USER_ROLE")
-                .
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.authorizeRequests()
+                .antMatchers("/index").permitAll()
+                .antMatchers("/guest/**").permitAll()
+                .antMatchers("/customers/**").hasAuthority("ROLE_CUSTOMER")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .failureUrl("/login?error")
+                .successForwardUrl("/home")
+                .usernameParameter("username").passwordParameter("password")
                 .permitAll()
-                .anyRequest();
+                .and()
+                .logout().logoutSuccessUrl("/logout")
+                .and()
+                .csrf();
     }
 
 }
