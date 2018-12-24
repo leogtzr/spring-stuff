@@ -18,7 +18,7 @@ public class RetrofitSecClientApplication {
 		try {
 			final SecurityApi api = BankClient.getRetrofit().create(SecurityApi.class);
 			final Call<String> call = api.login(new Credentials("leo", "lein23"));
-			final Response<String> response = call.execute();
+			call.execute();
 		} catch (final IOException ex) {
 			ex.printStackTrace();
 		}
