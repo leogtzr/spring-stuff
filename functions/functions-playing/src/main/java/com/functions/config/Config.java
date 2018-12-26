@@ -11,6 +11,9 @@ public class Config {
     @Bean
     /*
         curl --noproxy "*" http://localhost:8080/reverseString -H "Content-Type: text/plain" -d "Leonardo"
+        or:
+        http://localhost:8080/reverseString/hola
+        in the browser.
      */
     public Function<String, String> reverseString() {
         return value -> new StringBuilder(value).reverse().toString();
