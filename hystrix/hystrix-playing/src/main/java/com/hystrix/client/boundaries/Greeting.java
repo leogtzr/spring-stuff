@@ -1,13 +1,20 @@
 package com.hystrix.client.boundaries;
 
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Component;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
-@Component
-@FeignClient(
-        name = "some-shit",
-        url = "http://localhost:8090/hello",
-        fallback = 
-)
+@Service
 public class Greeting {
+
+    @HystrixCommand(fallbackMethod = "defaultGreeting")
+    public String getGreeting() {
+        return new RestTemplate()
+                .getForObject("http://localhost:8090/hello", String.class);
+    }
+
+    private String defaultGreeting() {
+        return "default greeting";
+    }
+
 }
