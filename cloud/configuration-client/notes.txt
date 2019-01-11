@@ -1,0 +1,9 @@
+To refresh the properties ...
+
+git add -A .
+git commit -m "MESSAGE"
+
+Then:
+
+curl localhost:8080/actuator/refresh -d {} -H "Content-Type: application/json"
+
