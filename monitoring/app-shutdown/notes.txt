@@ -1,0 +1,2 @@
+To shutdown the app you can use: 
+curl --noproxy '*' -X POST 'http://localhost:8080/actuator/shutdown'
