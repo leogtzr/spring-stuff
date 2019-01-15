@@ -18,7 +18,22 @@ public class RetrofitSecClientApplication {
 		try {
 			final SecurityApi api = BankClient.getRetrofit().create(SecurityApi.class);
 			final Call<String> call = api.login(new Credentials("leo", "lein23"));
-			call.execute();
+
+			final Response<String> response = call.execute();
+			//final String body = execute.body();
+			// System.out.println("Ok ... ");
+
+			//System.out.println("Body: " + body);
+
+			if (response.isSuccessful()) {
+				final String body = response.body();
+			} else {
+				//error.setText("An error happened, try again later.");
+				System.out.println("An error happened, try again later.");
+				System.out.println(response.errorBody().string());
+			}
+
+
 		} catch (final IOException ex) {
 			ex.printStackTrace();
 		}
