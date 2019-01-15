@@ -1,0 +1,10 @@
+Go to:
+http://localhost:8080/hystrix
+
+and enter:
+http://localhost:8080/actuator/hystrix.stream
+
+then hit the service to get some metrics:
+http://localhost:8080/hello
+
+
