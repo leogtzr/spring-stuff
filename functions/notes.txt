@@ -1,0 +1,7 @@
+curl --noproxy "*" http://localhost:8080/reverseString -H "Content-Type: text/plain" -d "Leonardo"
+
+With proxy:
+curl --noproxy '*' -X GET -i http://localhost:8080/reverseString/hola
+
+Without proxy:
+curl -X GET -i http://localhost:8080/reverseString/hola

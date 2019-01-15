@@ -1,0 +1,43 @@
+# Create container from app:
+[0 [10:41][leo@docker-app]$ sudo docker build -t spring-boot:1.0 . --build-arg JAR_FILE=target/docker-app-0.0.1-SNAPSHOT.jar
+Sending build context to Docker daemon  16.91MB
+Step 1/6 : FROM java:8
+ ---> d23bdf5b1b1b
+Step 2/6 : WORKDIR /
+ ---> Using cache
+ ---> c1f8d28bf635
+Step 3/6 : ARG JAR_FILE
+ ---> Using cache
+ ---> e5306ea8a977
+Step 4/6 : COPY ${JAR_FILE} app.jar
+ ---> Using cache
+ ---> 039a71a21367
+Step 5/6 : EXPOSE 8080
+ ---> Using cache
+ ---> e290ba9e8096
+Step 6/6 : ENTRYPOINT ["java", "-jar", "app.jar"]
+ ---> Using cache
+ ---> b5e43f862c69
+Successfully built b5e43f862c69
+Successfully tagged spring-boot:1.0
+[0 [10:41][leo@docker-app]$
+
+# Run container with a tagged name:
+[0 [10:41][leo@docker-app]$ sudo docker run -p 8081:8080 -d --name hello-app spring-boot:1.0
+0775d3622f78f93a7ca66c408d02656bb1916d3ee4439a74261662f104b908b6
+[0 [10:42][leo@docker-app]$ 
+
+
+# Remove a container:
+[0 [10:39][leo@docker]$ sudo docker container rm -v 4e02a728c694
+4e02a728c694
+[0 [10:39][leo@docker]$ 
+
+# List containers:
+[0 [10:38][leo@docker-app]$ sudo docker container ls -a
+CONTAINER ID        IMAGE               COMMAND               CREATED             STATUS                        PORTS               NAMES
+4e02a728c694        spring-boot:1.0     "java -jar app.jar"   2 minutes ago       Exited (143) 11 seconds ago                       test-alv
+[0 [10:38][leo@docker-app]$ 
+
+# How to check logs (+F follow) from a running app:
+sudo docker container logs -f 0775d3622f78
