@@ -29,7 +29,7 @@ public class FileChannelApp {
 			throw new IllegalArgumentException("theJar.jar <file>");
 		}
 
-		try (RandomAccessFile reader = new RandomAccessFile(args[0], "r")) {
+		try (final RandomAccessFile reader = new RandomAccessFile(args[0], "r")) {
 			final FileChannel channel = reader.getChannel();
 			final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
