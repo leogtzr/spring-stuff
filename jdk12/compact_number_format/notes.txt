@@ -1,0 +1,5 @@
+Full format 	Compact format
+Revenues 	3,603,301 	3.6 M
+Discount 	104.56 	104.56
+Labor 	256,335.35 	256 K
+
