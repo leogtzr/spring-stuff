@@ -13,7 +13,11 @@ public class SwitchExpressionsApp {
 
     private static void foo(final Size size) {
         final int height = switch(size) {
-
+			case S -> 0;
+			case M -> 1;
+			case L -> 2;
+			case XL -> 3;
+			default -> -1;
         };
     }
 
