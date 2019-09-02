@@ -8,7 +8,7 @@ public class SwitchExpressionsApp {
     public enum Size {S, M, L, XL};
 
     public static void main(final String[] args) {
-
+        foo(Size.L);
     }
 
     private static void foo(final Size size) {
@@ -19,6 +19,8 @@ public class SwitchExpressionsApp {
 			case XL -> 3;
 			default -> -1;
         };
+
+        System.out.println(height);
     }
 
 }

@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.*;
 
-@SpringBootApplication
+// /@SpringBootApplication
 public class ReadingWordsApplication {
 
 	private static final Set<String> AVOID = new HashSet<>(Arrays.asList(
@@ -23,7 +23,7 @@ public class ReadingWordsApplication {
 			"una", "no", "le", "para", "&"
 	));
 
-	public static void main(final String[] args) throws IOException {
+	public static void main2(final String[] args) throws IOException {
 
 		if (args == null || args.length < 1) {
 			throw new IllegalArgumentException("theJar.jar <file>");
